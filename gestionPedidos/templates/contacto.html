@@ -10,13 +10,19 @@
 
     <h1>Contáctanos</h1>
 
+    {% if form.errors %}
+
+    <p style="color:red;">Revisa este campo</p>"
+
+    {% endif %}
+
     <form action="/contacto/" method="POST">{% csrf_token %}
 
-        <p>Asunto: </p><input type="text" name ="asunto">
-        
-        <p>Email: </p><input type="text" name ="email">
-        
-        <p>Mensaje: <textarea name ="mensaje" rows="15" cols="45"></textarea></p>
+        <table border="1">
+
+            {{form.as_table}}
+
+        </table>
 
         <input type="submit" value="Enviar">
     
